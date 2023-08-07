@@ -7,25 +7,34 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func GetRequests(c *fiber.Ctx) error {
-
-	getString := c.OriginalURL()
-
-	UpperCaseString := strings.ToUpper(getString)
-
-	return c.SendString(UpperCaseString)
+type JsonMessage struct {
+	Message string `json:"message"`
 }
 
-func NoEndpoint(c *fiber.Ctx) error {
-	return c.Status(fiber.StatusBadRequest).SendString("Bad Request")
+func GetJson(c *fiber.Ctx) error {
+
+	queryValue := c.Query("message")
+
+	MakeUppercase := strings.ToUpper(queryValue)
+
+	return c.SendString(MakeUppercase)
 }
 
 func main() {
 	app := fiber.New()
+	app.Get("/amine", func(c *fiber.Ctx) error {
 
-	app.Get("/", NoEndpoint)
+		queryValue := c.Query("message")
 
-	app.Get("/:text?", GetRequests)
+		if queryValue != "" {
+			MakeUppercase := strings.ToUpper(queryValue)
 
+			return c.SendString(MakeUppercase)
+
+		} else {
+			return c.SendStatus(400)
+		}
+
+	})
 	log.Fatal(app.Listen(":7070"))
 }
