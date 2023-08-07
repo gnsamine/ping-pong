@@ -27,9 +27,14 @@ func main() {
 		queryValue := c.Query("message")
 
 		if queryValue != "" {
+
+			var Jsonmes JsonMessage
+
 			MakeUppercase := strings.ToUpper(queryValue)
 
-			return c.SendString(MakeUppercase)
+			Jsonmes.Message = MakeUppercase
+
+			return c.JSON(MakeUppercase)
 
 		} else {
 			return c.SendStatus(400)
