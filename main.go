@@ -8,12 +8,12 @@ import (
 )
 
 type JsonMessage struct {
-	Message string `json:"message"`
+	Message string `json:"text"`
 }
 
 func GetJson(c *fiber.Ctx) error {
 
-	queryValue := c.Query("message")
+	queryValue := c.Query("text")
 
 	MakeUppercase := strings.ToUpper(queryValue)
 
@@ -24,7 +24,7 @@ func main() {
 	app := fiber.New()
 	app.Get("/amine", func(c *fiber.Ctx) error {
 
-		queryValue := c.Query("message")
+		queryValue := c.Query("text")
 
 		if queryValue != "" {
 
