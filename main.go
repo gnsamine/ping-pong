@@ -11,6 +11,15 @@ type JsonMessage struct {
 	Message string `json:"text"`
 }
 
+func GetJson(c *fiber.Ctx) error {
+
+	queryValue := c.Query("text")
+
+	MakeUppercase := strings.ToUpper(queryValue)
+
+	return c.SendString(MakeUppercase)
+}
+
 func main() {
 	app := fiber.New()
 	app.Get("/amine", func(c *fiber.Ctx) error {

@@ -1,6 +1,6 @@
 # ping-pong
 
-This is a simple Go application built using the Fiber web framework. It provides an API endpoint for transforming and returning messages in uppercase.
+This is a simple Go application built using the Fiber web framework. It provides an API endpoint for transforming and returning text in uppercase.
 
 ## Table of Contents
 
@@ -35,11 +35,11 @@ For the future development plans and roadmap of this project, please refer to th
 **Method**: GET
 
 **Query Parameters**:
-- `message` (string): The message to be transformed to uppercase.
+- `text` (string): The text to be transformed to uppercase.
 
 **Response**:
-- If a valid `message` parameter is provided, the API will return a JSON response containing the transformed message in uppercase.
-- If no `message` parameter is provided, a 400 Bad Request status will be returned.
+- If a valid `text` parameter is provided, the API will return a JSON response containing the transformed text in uppercase.
+- If no `text` parameter is provided, a 400 Bad Request status will be returned.
 
 ### 2. Get Uppercase String
 
@@ -48,11 +48,11 @@ For the future development plans and roadmap of this project, please refer to th
 **Method**: GET
 
 **Query Parameters**:
-- `message` (string): The message to be transformed to uppercase.
+- `text` (string): The tet-xt to be transformed to uppercase.
 
 **Response**:
-- If a valid `message` parameter is provided, the API will return the transformed message in uppercase as a plain text response.
-- If no `message` parameter is provided, an empty response with a 400 Bad Request status will be returned.
+- If a valid `text` parameter is provided, the API will return the transformed text in uppercase as a plain text response.
+- If no `text` parameter is provided, an empty response with a 400 Bad Request status will be returned.
 
 
 
